@@ -1,0 +1,6 @@
+{
+  "package_name": "multi_sensor_interfaces",
+  "non_idl_tuples": [
+    "/home/hanmo/workspace/code/esp32_arduino/extra_packages/multi_sensor_interfaces:srv/Multisensor.srv"
+  ]
+}

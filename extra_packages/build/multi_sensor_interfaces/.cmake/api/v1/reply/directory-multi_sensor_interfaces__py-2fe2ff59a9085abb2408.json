@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "multi_sensor_interfaces__py",
+		"source" : "/home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces/multi_sensor_interfaces__py"
+	}
+}

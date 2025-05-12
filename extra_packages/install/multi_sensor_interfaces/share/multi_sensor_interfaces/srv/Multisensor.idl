@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from multi_sensor_interfaces/srv/Multisensor.srv
+// generated code does not contain a copyright notice
+
+
+module multi_sensor_interfaces {
+  module srv {
+    struct Multisensor_Request {
+      float mid_finger;
+
+      float index_finger;
+
+      float ring_finger;
+
+      string location;
+    };
+    struct Multisensor_Response {
+      int32 result;
+    };
+  };
+};

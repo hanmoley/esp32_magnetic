@@ -1,0 +1,2 @@
+Invoking command in '/home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces': /usr/bin/cmake --build /home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces -- -j24 -l24
+Invoked command in '/home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces' returned '2': /usr/bin/cmake --build /home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces -- -j24 -l24

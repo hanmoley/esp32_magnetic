@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-a8d100b01ade83df2424.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "multi_sensor_interfaces__py",
+					"jsonFile" : "directory-multi_sensor_interfaces__py-2fe2ff59a9085abb2408.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces/multi_sensor_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "multi_sensor_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_multi_sensor_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_multi_sensor_interfaces_egg-446013e6713bc3e21c5d.json",
+					"name" : "ament_cmake_python_build_multi_sensor_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_multi_sensor_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_multi_sensor_interfaces-f3245544a7a44a7c1703.json",
+					"name" : "ament_cmake_python_copy_multi_sensor_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces-39027d84510d5325fadc.json",
+					"name" : "multi_sensor_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__cpp-c3820da4b0b5494c829a.json",
+					"name" : "multi_sensor_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "multi_sensor_interfaces__py::@b4897c76101c00576153",
+					"jsonFile" : "target-multi_sensor_interfaces__py-f9cd99be4827427d717c.json",
+					"name" : "multi_sensor_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_generator_c-68c3b56027a11ff74989.json",
+					"name" : "multi_sensor_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_generator_py-3aee63480aca54e75401.json",
+					"name" : "multi_sensor_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_c-74d5e4f63038aaf8b020.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_c__pyext-21adb91b5fb29eea8195.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_cpp-664c8f8a666bdd628eb2.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_fastrtps_c-9d9b8a23799f4316840b.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_fastrtps_c__pyext-cfed24ee52473336b78b.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_fastrtps_cpp-8376133eab998664e09d.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_introspection_c-9e17ad0fd2f3880b44ce.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_introspection_c__pyext-35d8c0d48db02dbfff68.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces__rosidl_typesupport_introspection_cpp-71b63a465f825523d536.json",
+					"name" : "multi_sensor_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_sensor_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_sensor_interfaces_uninstall-0f354dc6b1f237c4628d.json",
+					"name" : "multi_sensor_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-82dedaac44e93575091b.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/hanmo/workspace/code/esp32_arduino/extra_packages/build/multi_sensor_interfaces",
+		"source" : "/home/hanmo/workspace/code/esp32_arduino/extra_packages/multi_sensor_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
