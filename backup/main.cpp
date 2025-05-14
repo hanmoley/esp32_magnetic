@@ -131,19 +131,22 @@ void read_and_publish_sensor(int sensor_index) {
     mag_msgs[sensor_index].header.stamp.nanosec = (current_time % 1000) * 1000000;
     
     // 设置frame_id
-    char frame_id[20];
-    sprintf(frame_id, "mag_sensor_%d", sensor_index);
-    snprintf(mag_msgs[sensor_index].header.frame_id.data, 
-             sizeof(mag_msgs[sensor_index].header.frame_id.data), 
-             frame_id);
-    mag_msgs[sensor_index].header.frame_id.size = strlen(mag_msgs[sensor_index].header.frame_id.data);
+    // char frame_id[20];
+    // sprintf(frame_id, "mag_sensor_%d", sensor_index);
+    // snprintf(mag_msgs[sensor_index].header.frame_id.data, 
+    //          sizeof(mag_msgs[sensor_index].header.frame_id.data), 
+    //          frame_id);
+    // mag_msgs[sensor_index].header.frame_id.size = strlen(mag_msgs[sensor_index].header.frame_id.data);
     
+    // 设置frame_id - 添加这一行
+    snprintf(mag_msgs[sensor_index].header.frame_id.data, sizeof(mag_msgs[sensor_index].header.frame_id.data), "map");
+    mag_msgs[sensor_index].header.frame_id.size = strlen(mag_msgs[sensor_index].header.frame_id.data);
     // 打印调试信息
-    Serial.print("传感器 "); Serial.print(sensor_index);
-    Serial.print(" X: "); Serial.print(event.magnetic.x);
-    Serial.print(" Y: "); Serial.print(event.magnetic.y);
-    Serial.print(" Z: "); Serial.print(event.magnetic.z);
-    Serial.println(" uTesla");
+    // Serial.print("传感器 "); Serial.print(sensor_index);
+    // Serial.print(" X: "); Serial.print(event.magnetic.x);
+    // Serial.print(" Y: "); Serial.print(event.magnetic.y);
+    // Serial.print(" Z: "); Serial.print(event.magnetic.z);
+    // Serial.println(" uTesla");
     
     // 发布消息
     rcl_publish(&magnetic_publishers[sensor_index], &mag_msgs[sensor_index], NULL);
@@ -169,7 +172,7 @@ void timer_mag_callback_1(rcl_timer_t *timer, int64_t last_call_time) {
 void timer_mag_callback_2(rcl_timer_t *timer, int64_t last_call_time) {
   if (timer == NULL) return;
   Serial.println(" enter the timer_mag_callback_2");
-  read_and_publish_sensor(2);
+  // read_and_publish_sensor(2);
 }
 
 void timer_mag_callback_3(rcl_timer_t *timer, int64_t last_call_time) {
@@ -333,12 +336,12 @@ void microros_task(void *param)
 
 }
 
-void magnetic_sensor3_task(void *param) {
-  while (true) {
-    Serial.println("在独立任务中读取传感器3");
-    read_and_publish_sensor(3);
-  }
-}
+// void magnetic_sensor3_task(void *param) {
+//   while (true) {
+//     Serial.println("在独立任务中读取传感器3");
+//     read_and_publish_sensor(3);
+//   }
+// }
 
 void setup()
 {
@@ -366,7 +369,7 @@ void setup()
   rclc_node_init_default(&node, "esp32_node", "", &support);
 
   /* 创建执行器 */
-  rclc_executor_init(&executor, &support.context, 8, &allocator);  //有几个需要执行就几个
+  rclc_executor_init(&executor, &support.context, 10, &allocator);  //有几个需要执行就几个
 
   /* pressure_publisher init*/
   // create the timer 20ms once sent
@@ -445,6 +448,7 @@ void setup()
       
     // 添加定时器到执行器
     rclc_executor_add_timer(&executor, &magnetic_timers[i]);
+    delay(100); // 添加延时
   }
 
   // I2C初始化和扫描
@@ -562,12 +566,12 @@ void setup()
     &node,
     ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),
     "battery_voltage");
-  rclc_timer_init_default(
-    &timer2,
-    &support,
-    RCL_MS_TO_NS(200),
-    timer2_callback);
-  rclc_executor_add_timer(&executor, &timer2);
+  // rclc_timer_init_default(
+  //   &timer2,
+  //   &support,
+  //   RCL_MS_TO_NS(200),
+  //   timer2_callback);
+  // rclc_executor_add_timer(&executor, &timer2);
   pinMode(5, INPUT);
 
   /* sbscriber init */
@@ -585,6 +589,27 @@ void setup()
   rclc_service_init_default(&add_service, &node, ROSIDL_GET_SRV_TYPE_SUPPORT(example_interfaces, srv, AddTwoInts), "/addtwoints");
   rclc_executor_add_service(&executor, &add_service, &req, &res, add_service_callback);
 
+    /**
+   * @brief 创建一个任务在Core 0 上
+   * microros_task    任务函数
+   * "microros_task"  任务名称
+   * 10240      任务占用内存大小
+   * NULL         任务参数，为空
+   * 1               任务优先级
+   * NULL     任务Handle可以为空
+   * 0                 内核编号
+   */
+  xTaskCreatePinnedToCore(microros_task, "microros_task", 10240, NULL, 1, NULL, 0); //before the rclc_executor_init function excute
+  
+
+  // xTaskCreatePinnedToCore(
+  //   magnetic_sensor3_task,    // 任务函数
+  //   "magnetic_sensor3_task",  // 任务名称
+  //   2048,                     // 栈大小
+  //   NULL,                     // 参数
+  //   1,                        // 优先级
+  //   NULL,                     // 任务句柄
+  //   1);                       // 在核心1上运行（与主循环不同的核心）
 
   /* 舵机 */
   Serial.println("begin the servo");
@@ -612,28 +637,6 @@ void setup()
   }
   sprintf(time_str, "%04d-%02d-%02d %02d:%02d:%02d ", year(), month(), day(), hour(), minute(), second());
   Serial.println(time_str);
-
-    /**
-   * @brief 创建一个任务在Core 0 上
-   * microros_task    任务函数
-   * "microros_task"  任务名称
-   * 10240      任务占用内存大小
-   * NULL         任务参数，为空
-   * 1               任务优先级
-   * NULL     任务Handle可以为空
-   * 0                 内核编号
-   */
-  xTaskCreatePinnedToCore(microros_task, "microros_task", 1024, NULL, 1, NULL, 0); //before the rclc_executor_init function excute
-  
-
-  xTaskCreatePinnedToCore(
-    magnetic_sensor3_task,    // 任务函数
-    "magnetic_sensor3_task",  // 任务名称
-    2048,                     // 栈大小
-    NULL,                     // 参数
-    1,                        // 优先级
-    NULL,                     // 任务句柄
-    1);                       // 在核心1上运行（与主循环不同的核心）
 
 }
 
